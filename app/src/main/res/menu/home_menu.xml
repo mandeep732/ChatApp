@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item android:id="@+id/camera_home_menu"
+        android:title="Camera"
+        android:icon="@mipmap/ic_launcher"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/profile_home_menu"
+        android:title="Profile"
+        app:showAsAction="never"
+        />
+
+    <item android:id="@+id/settings_home_menu"
+        android:title="Settings"/>
+
+    <item android:id="@+id/logout_home_menu"
+        android:title="Log Out"
+        app:showAsAction="never"
+        >
+    </item>
+
+</menu>
