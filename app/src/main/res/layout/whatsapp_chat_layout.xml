@@ -21,6 +21,8 @@
         android:stackFromBottom="false"
         android:transcriptMode="normal"/>
 
+
+    
     <LinearLayout
         android:id="@+id/bottomlayout"
         android:layout_width="match_parent"
