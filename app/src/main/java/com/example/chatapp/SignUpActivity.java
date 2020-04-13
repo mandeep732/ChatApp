@@ -79,7 +79,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
        name.setError("");
        pwd.setError("");
     }
-    private void registerAccount(final String nameStr, String emailStr, String pwdStr) {
+    private void registerAccount(final String nameStr, final String emailStr, String pwdStr) {
         final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setMessage("Creating account...");
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -104,7 +104,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                             HashMap<String,String> hash = new HashMap<>();
                             hash.put("id",userId);
                             hash.put("name",nameStr);
-                            hash.put("image","default");
+                            hash.put("email",emailStr);
+                            hash.put("imageURL","default");
 
 
                             reference.setValue(hash).addOnCompleteListener(new OnCompleteListener<Void>() {

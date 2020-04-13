@@ -16,18 +16,22 @@ public class LaunchActivity extends AppCompatActivity  implements View.OnClickLi
 
     private Button logIn, signUp;
     private ProgressBar loading;
+    private FirebaseUser currUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
-        FirebaseUser currUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        currUser = FirebaseAuth.getInstance().getCurrentUser();
         if(currUser!=null)
         {
-            finish();
+
             Intent i = new Intent(LaunchActivity.this,HomeActivity.class);
             startActivity(i);
+            finish();
             return;
         }
 
@@ -53,6 +57,7 @@ public class LaunchActivity extends AppCompatActivity  implements View.OnClickLi
                 findViewById(R.id.signUpBtn_launch).setClickable(false);
                 Intent i = new Intent(LaunchActivity.this,LogInActivity.class);
                 startActivity(i);
+
                 break;
             case R.id.signUpBtn_launch:
                 findViewById(R.id.logInBtn_launch).setClickable(false);

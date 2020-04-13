@@ -97,6 +97,7 @@ public class LogInActivity extends AppCompatActivity  implements View.OnClickLis
                         if(task.isSuccessful())
                         {
                             Intent i = new Intent(LogInActivity.this,HomeActivity.class);
+
                             startActivity(i);
                             finish();
                         }else
