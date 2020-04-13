@@ -1,8 +1,10 @@
 package com.example.chatapp.HomeFragments;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class UsersFragment extends Fragment {
@@ -57,6 +60,7 @@ public class UsersFragment extends Fragment {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
 
         reference.addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 userList.clear();
@@ -72,6 +76,12 @@ public class UsersFragment extends Fragment {
                     }
                 }
 
+                userList.sort(new Comparator<User>() {
+                    @Override
+                    public int compare(User o1, User o2) {
+                        return o1.getName().compareToIgnoreCase(o2.getName());
+                    }
+                });
                 userAdapter = new UserAdapter(getContext(),userList);
                 recyclerView.setAdapter(userAdapter);
             }
