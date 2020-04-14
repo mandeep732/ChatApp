@@ -2,23 +2,18 @@ package com.example.chatapp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
-
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.example.chatapp.HomeFragments.ChatsFragment;
 import com.example.chatapp.HomeFragments.UsersFragment;
@@ -28,7 +23,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -39,13 +33,16 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar_home);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(R.string.appName);
+        getSupportActionBar().setTitle(R.string.app_name);
 
 
         auth= FirebaseAuth.getInstance();
         FirebaseUser currUser = auth.getCurrentUser();
-        if(currUser!=null)
+        if(currUser==null)
         {
+            Intent i = new Intent(HomeActivity.this,LaunchActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
         }
 
         TabLayout tabLayout = findViewById(R.id.tabLayout_home);
@@ -70,9 +67,6 @@ public class HomeActivity extends AppCompatActivity {
 
         switch (item.getItemId())
         {
-            case R.id.camera_home_menu:
-
-            break;
             case R.id.profile_home_menu:
                 Intent i = new Intent(HomeActivity.this,ProfileActivity.class);
                 startActivity(i);
@@ -115,7 +109,6 @@ public class HomeActivity extends AppCompatActivity {
 
         public ViewPagerAdapter(@NonNull FragmentManager fm) {
             super(fm);
-
             fragments = new ArrayList<>();
             title= new ArrayList<>();
         }

@@ -40,6 +40,7 @@
                 android:text="Full Name"
                 android:textSize="16dp"
                 android:textStyle="bold"
+                android:textColor="@color/gray1"
                 android:paddingLeft="2dp"
                 android:layout_weight="1"/>
             <TextView
@@ -49,6 +50,7 @@
                 android:text="Online Status"
                 android:textSize="10dp"
                 android:textStyle="bold"
+                android:textColor="@color/violet"
                 android:paddingLeft="2dp"/>
 
         </LinearLayout>
@@ -66,16 +68,17 @@
                 android:text="Email Address"
                 android:textSize="14dp"
                 android:padding="2dp"
+                android:textColor="@color/gray2"
                 android:layout_weight="1"/>
         </LinearLayout>
 
     </LinearLayout>
-    <View
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/gray2"
-        android:layout_below="@id/linearLayout"
-        android:layout_marginLeft="60dp"
-        />
+<!--    <View-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="@color/skyBlue"-->
+<!--        android:layout_below="@id/linearLayout"-->
+<!--        android:layout_marginLeft="60dp"-->
+<!--        />-->
 </RelativeLayout>

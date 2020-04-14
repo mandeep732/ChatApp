@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 
 public class ChatsFragment extends Fragment {
@@ -31,7 +32,7 @@ public class ChatsFragment extends Fragment {
     private RecyclerView recyclerView;
     private ChatAdapter adapter;
     private ArrayList<User> userArrayList;
-    private ArrayList<String> chatUserIdList;
+    private HashSet<String> chatUserIdList;
 
     private FirebaseUser currUser;
     private DatabaseReference reference;
@@ -53,10 +54,9 @@ public class ChatsFragment extends Fragment {
 
 
         userArrayList = new ArrayList<>();
-        chatUserIdList = new ArrayList<>();
+        chatUserIdList = new HashSet<>();
 
 
-        final ArrayList<User> users = new ArrayList<>();
 
         currUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Chats");
@@ -89,11 +89,36 @@ public class ChatsFragment extends Fragment {
         });
 
 
-
-
         return view;
     }
 
     private void fetchUsers() {
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                userArrayList.clear();
+
+                for(DataSnapshot snapshot :dataSnapshot.getChildren())
+                {
+                    User tempUser = snapshot.getValue(User.class);
+                    for(String id:chatUserIdList){
+                        if(id.equals(tempUser.getId()))
+                        {
+                            userArrayList.add(tempUser);
+                        }
+                    }
+                }
+                adapter = new ChatAdapter(getContext(),userArrayList);
+                recyclerView.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }

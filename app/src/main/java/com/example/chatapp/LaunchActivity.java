@@ -47,6 +47,7 @@ public class LaunchActivity extends AppCompatActivity  implements View.OnClickLi
         logIn.setOnClickListener(this);
         signUp.setOnClickListener(this);
 
+
     }
 
     @Override

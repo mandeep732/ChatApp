@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LogInActivity">
+    tools:context=".LogInActivity"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
 
     <include
         android:id="@+id/toolbar_logIn"
@@ -37,26 +39,29 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.95" />
 
+
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:layout_constraintVertical_bias="1.0">
 
+        >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="42sp"
             android:text="Log In"
+            android:textAlignment="center"
+            android:textColor="@color/gray1"
+            android:textSize="42sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -65,43 +70,45 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailTextInputLayout_logIn"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:singleLine="true"
-                />
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/pwdTextInputLayout_logIn"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:singleLine="true"
-                />
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/logInBtn_logIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log In"/>
+            android:text="Log In" />
+
         <TextView
+            android:id="@+id/forgetPwd_logIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="Forget password"
-            android:id="@+id/forgetPwd_logIn"/>
+            android:textColor="@color/violet"
+            android:textSize="12dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -59,6 +59,7 @@
             android:textSize="42sp"
             android:text="Sign Up"
             android:textStyle="bold"
+            android:textColor="@color/gray1"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline3"

@@ -6,14 +6,10 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -97,13 +93,11 @@ public class LogInActivity extends AppCompatActivity  implements View.OnClickLis
                         if(task.isSuccessful())
                         {
                             Intent i = new Intent(LogInActivity.this,HomeActivity.class);
-
+                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(i);
-                            finish();
                         }else
                             Toast.makeText(LogInActivity.this,"Error !"+task.getException(),Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
-
                     }
 
                 });

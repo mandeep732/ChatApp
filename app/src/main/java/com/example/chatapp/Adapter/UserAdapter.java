@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.chatapp.HomeActivity;
+import com.bumptech.glide.Glide;
 import com.example.chatapp.MessageActivity;
 import com.example.chatapp.R;
 import com.example.chatapp.User;
@@ -42,16 +42,15 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         holder.emailId.setText(user.getEmail());
         if(user.getImageURL().equals("default"))
         {
-            holder.profileImage.setImageResource(R.mipmap.ic_launcher);
+            holder.profileImage.setImageResource(R.drawable.default_profile_image);
         }else
         {
-            holder.profileImage.setImageResource(R.mipmap.ic_launcher_round);
+            Glide.with(context).load(user.getImageURL()).into(holder.profileImage);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent i = new Intent(context, MessageActivity.class);
                 i.putExtra("userId",user.getId());
                 context.startActivity(i);

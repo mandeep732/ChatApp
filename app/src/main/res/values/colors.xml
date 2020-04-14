@@ -2,15 +2,17 @@
 <resources>
     <color name="colorPrimary">@color/violet</color>
     <color name="colorPrimaryDark">@color/gray1</color>
-    <color name="colorAccent">@color/skyBlue1</color>
+    <color name="colorAccent">@color/blueLight</color>
 
-    <color name="gray1">#41464F</color>
-    <color name="gray2">#565C69</color>
-    <color name="skyBlue1">#56BDE5</color>
-    <color name="skyBlue2">#A8DCEE</color>
+    <color name="violet">#1251F1</color>
+    <color name="blueLight">#078DF1</color>
+    <color name="blueDark">#078DF1</color>
     <color name="white">#ffffff</color>
     <color name="white1">#FEFCF9</color>
     <color name="white2">#F6FBFD</color>
-    <color name="white3">#F4ECE7</color>
-    <color name="violet">#2647FA</color>
+    <color name="skin">#F4ECE7</color>
+    <color name="skyBlue">#56BDE5</color>
+    <color name="gray1">#41464F</color>
+    <color name="gray2">#565C69</color>
+    <color name="yellow">#DB9E00</color>
 </resources>

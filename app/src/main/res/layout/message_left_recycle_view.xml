@@ -18,17 +18,17 @@
         android:paddingBottom="5dp"
         >
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/message_message_RecycleView"
             android:text="Message "
             android:textSize="14sp"
             android:layout_marginLeft="5dp"
             android:padding="5dp"
-            android:textColor="@color/white3"
+            android:textColor="@color/white2"
             android:textStyle="bold"/>
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/time_message_RecycleView"
             android:text="2:30"
@@ -36,6 +36,8 @@
             android:layout_marginLeft="10dp"
             android:textColor="@color/white1"></TextView>
 
+
     </LinearLayout>
+
 
 </RelativeLayout>

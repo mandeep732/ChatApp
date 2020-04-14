@@ -113,11 +113,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful())
                                     {
-
-                                        //Log.i("all done ", Calendar.getInstance().getTime().toString()+" dialog is :"+dialog.isShowing());
                                         Intent i = new Intent(SignUpActivity.this,HomeActivity.class);
+                                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                         startActivity(i);
-                                        finish();
                                         dialog2.dismiss();
                                     }
                                 }
@@ -140,7 +138,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             case android.R.id.home:
                 finish();
         }
-
 
         return super.onOptionsItemSelected(item);
     }

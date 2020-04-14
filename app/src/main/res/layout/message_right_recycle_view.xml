@@ -19,7 +19,7 @@
         android:paddingBottom="5dp"
         >
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/message_message_RecycleView"
             android:text="Message "
@@ -29,15 +29,17 @@
             android:textColor="@color/gray1"
             android:textAlignment="textEnd"
             android:textStyle="bold"/>
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/status_message_RecycleView"
-            android:text="seen"
-            android:textSize="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
+            android:text="seen"
             android:textAlignment="textEnd"
-            android:textColor="@color/gray2"></TextView>
+            android:textColor="@color/gray2"
+            android:textSize="10sp"
+            android:layout_gravity="end"></TextView>
 
     </LinearLayout>
 

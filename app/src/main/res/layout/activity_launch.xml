@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LaunchActivity"
+    android:background="@color/white"
     >
 
     <androidx.constraintlayout.widget.Guideline
@@ -54,12 +55,14 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="42sp"
-            android:text="Ola"
+            android:text="@string/app_name"
             android:textStyle="bold"
+            android:textColor="@color/gray1"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toTopOf="@+id/guideline4" />
+            app:layout_constraintTop_toTopOf="@+id/guideline4"
+            android:padding="20dp"/>
 
         <Button
             android:id="@+id/logInBtn_launch"
@@ -75,12 +78,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sign Up"
-            android:visibility="invisible" />
+            android:visibility="invisible"/>
 
         <ProgressBar
             android:id="@+id/loading_launch"
             android:layout_width="wrap_content"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            />
     </LinearLayout>
 
 

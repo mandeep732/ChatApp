@@ -10,11 +10,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.chatapp.MessageActivity;
 import com.example.chatapp.R;
 import com.example.chatapp.User;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.viewHolder> {
     private Context context;
@@ -38,6 +41,13 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.viewHolder> {
         final User user = arrayList.get(position);
 
         holder.fullName.setText(user.getName());
+        if(user.getImageURL().equals("default"))
+        {
+            holder.profileImage.setImageResource(R.drawable.default_profile_image);
+        }else
+        {
+            Glide.with(context).load(user.getImageURL()).into(holder.profileImage);
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,9 +66,11 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.viewHolder> {
     public class viewHolder extends RecyclerView.ViewHolder{
 
         public TextView fullName;
+        public CircleImageView profileImage;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             fullName = itemView.findViewById(R.id.name_chat_recycleView);
+            profileImage = itemView.findViewById(R.id.profileImage_chat_recycleView);
         }
     }
 }

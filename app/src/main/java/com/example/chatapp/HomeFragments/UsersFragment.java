@@ -50,7 +50,6 @@ public class UsersFragment extends Fragment {
         userList = new ArrayList<>();
         fetchUsers();
 
-
         return v;
     }
 

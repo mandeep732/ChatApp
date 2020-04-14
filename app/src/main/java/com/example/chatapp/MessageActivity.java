@@ -10,9 +10,12 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.chatapp.Adapter.MessageAdapter;
@@ -54,6 +57,8 @@ public class MessageActivity extends AppCompatActivity {
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+
+
         toolbar = findViewById(R.id.toolbar_message);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
@@ -82,7 +87,7 @@ public class MessageActivity extends AppCompatActivity {
                 User tempUser = dataSnapshot.getValue(User.class);
                 profileName.setText(tempUser.getName());
                 readMessage(currUser.getUid(),tempUser.getId());
-                moveRecycleViewUpward(recyclerView);
+
             }
 
             @Override
@@ -100,7 +105,6 @@ public class MessageActivity extends AppCompatActivity {
                 {
                     sendMessage(currUser.getUid(),userId,msgStr);
                     messageEditText.setText("");
-                    moveRecycleViewUpward(recyclerView);
                 }
             }
         });
@@ -155,8 +159,8 @@ public class MessageActivity extends AppCompatActivity {
 
     }
 
-    public void moveRecycleViewUpward(final RecyclerView recyclerView1)
-    {
+  //  public void moveRecycleViewUpward(final RecyclerView recyclerView1)
+   // {
 //        if (Build.VERSION.SDK_INT >= 11) {
 //            recyclerView1.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
 //                @Override
@@ -175,5 +179,5 @@ public class MessageActivity extends AppCompatActivity {
 //                }
 //            });
 //        }
-    }
+ //   }
 }
